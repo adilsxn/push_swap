@@ -1,0 +1,20 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-I",
+      "inc/",
+      "-o",
+      "build/obj/sort_small.o",
+      "src/sort_small.c"
+    ],
+    "directory": "/home/homeaway/42cursus/push_swap",
+    "file": "/home/homeaway/42cursus/push_swap/src/sort_small.c",
+    "output": "/home/homeaway/42cursus/push_swap/build/obj/sort_small.o"
+  }
+]
