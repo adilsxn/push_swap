@@ -33,16 +33,16 @@ RM         = rm -rf
 
 all: ${NAME}
 
-$(OBJ_DIR)/%.o: src/%.c | DIRECTORIES
+$(OBJ_DIR)/%.o: src/%.c | $(BUILD_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCS) ${LDFLAGS}
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJS} | $(BUILD_DIR)
 	@echo "Compiling push_swap"
 	@make -s -C libft
 	@${CC} ${CFLAGS}  $^ -o $@  -I ${INCS} ${LDFLAGS}
 	@echo "Push_swap created"
 
-$(B_OBJ_DIR)/%.o: src/%.c | DIRECTORIES
+$(B_OBJ_DIR)/%.o: src/%.c | $(BUILD_DIR)
 	@$(CC) $(CFLAGS) -I $(INCS) -c $< -o $@
 
 bonus: ${B_OBJS}
@@ -51,7 +51,7 @@ bonus: ${B_OBJS}
 	@${CC} ${CFLAGS}  $^ -o ${B_NAME} -I ${INCS} ${LDFLAGS}
 	@echo "Checker created"
 
-DIRECTORIES:
+$(BUILD_DIR):
 	@mkdir -p ${BUILD_DIR}
 	@mkdir -p ${OBJ_DIR} ${B_OBJ_DIR}
 
