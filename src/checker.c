@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 
 static void	get_op(char *line, t_stack **a, t_stack **b)
 {

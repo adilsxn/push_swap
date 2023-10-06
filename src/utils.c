@@ -58,7 +58,7 @@ void	del_stack(t_stack **stack)
 
 void	exit_fail(char *s, t_stack **a, t_stack **b)
 {
-	ft_printf("%s", s);
+	ft_putstr_fd(s, 2);
 	del_stack(a);
 	del_stack(b);
 	exit(1);

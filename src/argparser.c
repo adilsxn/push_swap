@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	ps_atoi(char **str)
+static long	ps_atoi(char **str)
 {
 	int		sinal;
 	long	res;
@@ -42,11 +42,13 @@ static int	ps_atoi(char **str)
 
 static int	ps_dupl_check(char **str, t_stack *stack)
 {
-	int		number;
+	long		number;
 	t_stack	*tmp;
 	int		stack_sz;
 
 	number = ps_atoi(str);
+	if (!(number >= INT_MIN && number < INT_MAX))
+		exit_fail("Error\n", &stack, NULL);
 	stack_sz = stack_size(stack);
 	if (stack_sz > 0)
 	{

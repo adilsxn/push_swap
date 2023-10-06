@@ -30,11 +30,12 @@ CC         = cc
 CFLAGS     = -g -Wall -Wextra -Werror
 LDFLAGS 	 = -Llibft -lft
 RM         = rm -rf
+BONUS      = checker
 
 all: ${NAME}
 
 $(OBJ_DIR)/%.o: src/%.c | $(BUILD_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCS) ${LDFLAGS}
+	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCS)
 
 ${NAME}: ${OBJS} | $(BUILD_DIR)
 	@echo "Compiling push_swap"
@@ -45,10 +46,12 @@ ${NAME}: ${OBJS} | $(BUILD_DIR)
 $(B_OBJ_DIR)/%.o: src/%.c | $(BUILD_DIR)
 	@$(CC) $(CFLAGS) -I $(INCS) -c $< -o $@
 
-bonus: ${B_OBJS}
+bonus: ${B_NAME}
+
+${B_NAME}: ${B_OBJS} | $(BUILD_DIR)
 	@echo "Compiling checker"
 	@make -s -C libft
-	@${CC} ${CFLAGS}  $^ -o ${B_NAME} -I ${INCS} ${LDFLAGS}
+	@${CC} ${CFLAGS}  $^ -o $@ -I ${INCS} ${LDFLAGS}
 	@echo "Checker created"
 
 $(BUILD_DIR):
