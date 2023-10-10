@@ -42,7 +42,7 @@ static long	ps_atoi(char **str)
 
 static int	ps_dupl_check(char **str, t_stack *stack)
 {
-	long		number;
+	long	number;
 	t_stack	*tmp;
 	int		stack_sz;
 
