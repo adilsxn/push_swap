@@ -19,11 +19,11 @@ int	main(int ac, char **av)
 	t_stack	*b;
 
 	a = NULL;
+	b = NULL;
 	if (ac == 1)
-		exit_fail("Error\n", &a, &b);
+		exit_fail(NULL, &a, &b);
 	ac--;
 	av++;
-	b = NULL;
 	argparser(&ac, av, &a);
 	idx_giver(a, stack_size(a) + 1);
 	sort(&a, &b);

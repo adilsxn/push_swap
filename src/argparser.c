@@ -33,8 +33,7 @@ static long	ps_atoi(char **str)
 	}
 	if (!ft_isspace(**str))
 	{
-		if (**str != 0 || ((res > 2147483647) || ((res > 2147483648)
-					&& (sinal == 1))))
+		if (**str != 0)
 			exit_fail("Error\n", NULL, NULL);
 	}
 	return (res * sinal);
@@ -47,7 +46,7 @@ static int	ps_dupl_check(char **str, t_stack *stack)
 	int		stack_sz;
 
 	number = ps_atoi(str);
-	if (!(number >= INT_MIN && number < INT_MAX))
+	if (!(number >= INT_MIN && number <= INT_MAX))
 		exit_fail("Error\n", &stack, NULL);
 	stack_sz = stack_size(stack);
 	if (stack_sz > 0)
@@ -84,6 +83,12 @@ static void	ps_conv_arg(char *av, t_stack **stack)
 
 void	argparser(int *ac, char **av, t_stack **stack)
 {
+	int i = 0;
+	while (av[i])
+	{
+		if (ft_strlen(av[i]) > 11)
+			exit_fail("Error\n", stack, NULL);
+	}
 	while (*ac)
 	{
 		ps_conv_arg(*av, stack);

@@ -15,7 +15,8 @@
 static void	push(t_stack **src, t_stack **dst)
 {
 	t_stack	*tmp;
-
+	if (stack_size(*src) < 1)
+		return ;
 	if (!*src)
 		return ;
 	tmp = (*src)->next;
