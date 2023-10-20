@@ -24,13 +24,12 @@ BUILD_DIR  = build
 OBJ_DIR    = ${BUILD_DIR}/obj
 B_OBJ_DIR  = ${BUILD_DIR}/b_obj
 INCS 			 = inc/
-NAME       = push_swap
-B_NAME     = checker
+NAME       = ${BUILD_DIR}/push_swap
+B_NAME     = ${BUILD_DIR}/checker
 CC         = cc
 CFLAGS     = -g -Wall -Wextra -Werror
 LDFLAGS 	 = -Llibft -lft
 RM         = rm -rf
-BONUS      = checker
 
 all: ${NAME}
 
