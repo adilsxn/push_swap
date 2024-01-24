@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_parser.c                                        :+:      :+:    :+:   */
+/*   argparser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acuva-nu <acuva-nu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:57:08 by acuva-nu          #+#    #+#             */
-/*   Updated: 2023/04/11 20:36:08 by acuva-nu         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:53:18 by acuva-nu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static long	ps_atoi(char **str)
+static long	ps_atoll(char **str)
 {
 	int		sinal;
-	long	res;
+	unsigned long long	res;
 
 	res = 0;
 	sinal = 1;
@@ -36,7 +36,7 @@ static long	ps_atoi(char **str)
 		if (**str != 0)
 			exit_fail("Error\n", NULL, NULL);
 	}
-	return (res * sinal);
+	return ((int)res * sinal);
 }
 
 static int	ps_dupl_check(char **str, t_stack *stack)
@@ -45,7 +45,7 @@ static int	ps_dupl_check(char **str, t_stack *stack)
 	t_stack	*tmp;
 	int		stack_sz;
 
-	number = ps_atoi(str);
+	number = ps_atoll(str);
 	if (!(number >= INT_MIN && number <= INT_MAX))
 		exit_fail("Error\n", &stack, NULL);
 	stack_sz = stack_size(stack);
