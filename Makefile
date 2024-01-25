@@ -27,7 +27,7 @@ INCS 			 = inc/
 NAME       = ${BUILD_DIR}/push_swap
 B_NAME     = ${BUILD_DIR}/checker
 CC         = cc
-CFLAGS     = -g -Wall -Wextra -Werror
+CFLAGS     = -Wall -Wextra -Werror
 LDFLAGS 	 = -Llibft -lft
 RM         = rm -rf
 

@@ -17,109 +17,109 @@ set 500_args2   19 18 22 364 76 83 299 481 44 260 232 359 439 12 96 132 419 324 
 printf "PUSH_SWAP id test \n"
 
 printf "ONE ARG: 42\n"
-printf  '%s: %s\n' "output" (./push_swap 42)
+printf  '%s: %s\n' "output" (build/push_swap 42)
 printf "expected: \n"
 printf "\n"
 
 printf "REPEATED ARGS: 4 40 70 33 4 17\n"
-printf  '%s: %s\n' "output" (./push_swap repeated)
+printf  '%s: %s\n' "output" (build/push_swap repeated)
 printf "expected: Error: duplicate value\n"
 printf "\n"
 
 printf "NOT NUMERICAL: 6 99 100 45 a\n"
-printf  '%s: %s\n' "output" (./push_swap not_not1)
+printf  '%s: %s\n' "output" (build/push_swap not_not1)
 printf "expected: Error: not an integer value\n"
 printf "\n"
 
 printf "NOT NUMERICAL: 6 99 100 2147483649\n"
-printf  '%s: %s\n' "output" (./push_swap not_not2)
+printf  '%s: %s\n' "output" (build/push_swap not_not2)
 printf "expected: Error: not an integer value\n"
 printf "\n"
 
 printf "4 SORTED ARGS\n"
-printf  '%s:%s\n' "output" (./push_swap 0 1 2 3)
+printf  '%s:%s\n' "output" (build/push_swap 0 1 2 3)
 printf "expected: \n"
 printf "\n"
 
 printf "10 SORTED ARGS\n"
-printf  '%s:%s\n' "output" (./push_swap 0 1 2 3 4 5 6 7 8 9)
+printf  '%s:%s\n' "output" (build/push_swap 0 1 2 3 4 5 6 7 8 9)
 printf "expected: \n"
 printf "\n"
 
 printf "THREE UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $three_args |./checker $three_args)
+printf  '%s: %s\n' "output" (build/push_swap $three_args |./checker $three_args)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $three_args | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $three_args | wc -l)
 printf "expected: < 3\n"
 printf "\n"
 
 printf "FOUR UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $four_args |./checker $four_args)
+printf  '%s: %s\n' "output" (build/push_swap $four_args |./checker $four_args)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $four_args | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $four_args | wc -l)
 printf "expected: < 10\n"
 printf "\n"
 
 printf "ANOTHER FOUR UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $four_args2 |./checker $four_args2)
+printf  '%s: %s\n' "output" (build/push_swap $four_args2 |./checker $four_args2)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $four_args2 | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $four_args2 | wc -l)
 printf "expected: < 10\n"
 printf "\n"
 
 printf "FIVE UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $five_args |./checker $five_args)
+printf  '%s: %s\n' "output" (build/push_swap $five_args |./checker $five_args)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $five_args | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $five_args | wc -l)
 printf "expected: < 12\n"
 printf "\n"
 
 printf "ANOTHER FIVE UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $five_args2 |./checker $five_args2)
+printf  '%s: %s\n' "output" (build/push_swap $five_args2 |./checker $five_args2)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $five_args2 | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $five_args2 | wc -l)
 printf "expected: < 12\n"
 printf "\n"
 
 printf "SEVEN UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $seven_args |./checker $seven_args)
+printf  '%s: %s\n' "output" (build/push_swap $seven_args |./checker $seven_args)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $seven_args | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $seven_args | wc -l)
 printf "expected: < 14\n"
 printf "\n"
 
 printf "ANOTHER SEVEN UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $seven_args2 |./checker $seven_args2)
+printf  '%s: %s\n' "output" (build/push_swap $seven_args2 |./checker $seven_args2)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $seven_args2 | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $seven_args2 | wc -l)
 printf "expected: < 14\n"
 printf "\n"
 
 printf "HUNDRED UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $100_args |./checker $100_args)
+printf  '%s: %s\n' "output" (build/push_swap $100_args |./checker $100_args)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $100_args | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $100_args | wc -l)
 printf "expected: < 700\n"
 printf "\n"
 
 printf "ANOTHER HUNDRED UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $100_args2 |./checker $100_args2)
+printf  '%s: %s\n' "output" (build/push_swap $100_args2 |./checker $100_args2)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $100_args2 | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $100_args2 | wc -l)
 printf "expected: < 700\n"
 printf "\n"
 
 printf "FIVE HUNDRED UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $500_args |./checker $500_args)
+printf  '%s: %s\n' "output" (build/push_swap $500_args |./checker $500_args)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $500_args | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $500_args | wc -l)
 printf "expected: < 5500\n"
 printf "\n"
 
 printf "ANOTHER FIVE HUNDRED UNSORTED ARGS\n"
-printf  '%s: %s\n' "output" (./push_swap $500_args2 |./checker $500_args2)
+printf  '%s: %s\n' "output" (build/push_swap $500_args2 |./checker $500_args2)
 printf "expected: OK\n"
-printf  '%s: %s\n' "output" (./push_swap $500_args2 | wc -l)
+printf  '%s: %s\n' "output" (build/push_swap $500_args2 | wc -l)
 printf "expected: < 5500\n"
 printf "\n"
 

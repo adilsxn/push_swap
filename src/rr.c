@@ -17,8 +17,8 @@ static void	rev_rotate(t_stack **stack)
 	t_stack	*tmp;
 	t_stack	*tail;
 	t_stack	*second_last;
-    
-    if (!*stack ||!(*stack)->next)
+
+	if (!*stack || !(*stack)->next)
 		return ;
 	tail = get_last_stack(*stack);
 	second_last = get_2ndlast_stack(*stack);

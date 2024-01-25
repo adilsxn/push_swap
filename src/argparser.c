@@ -12,13 +12,15 @@
 
 #include "push_swap.h"
 
-static long	ps_atoll(char **str)
+static bool	ps_atoll(char **str, int *number)
 {
-	int		sinal;
+	int					sinal;
 	unsigned long long	res;
+	unsigned long long	max;
 
 	res = 0;
 	sinal = 1;
+	max = INT_MAX;
 	while (ft_isspace(**str))
 		(*str)++;
 	if (**str == '-')
@@ -26,27 +28,25 @@ static long	ps_atoll(char **str)
 	if (**str == '-' || **str == '+')
 		(*str)++;
 	if (!ft_isdigit(**str))
-		exit_fail("Error\n", NULL, NULL);
+		return (true);
 	while (ft_isdigit(**str))
-	{
 		res = res * 10 + (*(*str)++ - '0');
-	}
 	if (!ft_isspace(**str))
-	{
 		if (**str != 0)
-			exit_fail("Error\n", NULL, NULL);
-	}
-	return ((int)res * sinal);
+			return (true);
+	if (res > max)
+		return (true);
+	*number = (int)(res * sinal);
+	return (false);
 }
 
 static int	ps_dupl_check(char **str, t_stack *stack)
 {
-	long	number;
+	int		number;
 	t_stack	*tmp;
 	int		stack_sz;
 
-	number = ps_atoll(str);
-	if (!(number >= INT_MIN && number <= INT_MAX))
+	if (ps_atoll(str, &number) == true)
 		exit_fail("Error\n", &stack, NULL);
 	stack_sz = stack_size(stack);
 	if (stack_sz > 0)
@@ -83,12 +83,6 @@ static void	ps_conv_arg(char *av, t_stack **stack)
 
 void	argparser(int *ac, char **av, t_stack **stack)
 {
-	int i = 0;
-	while (av[i])
-	{
-		if (ft_strlen(av[i]) > 11)
-			exit_fail("Error\n", stack, NULL);
-	}
 	while (*ac)
 	{
 		ps_conv_arg(*av, stack);
